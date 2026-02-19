@@ -20,7 +20,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // Aplicamos un contenedor básico de Material Design 3
             Surface(
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
@@ -33,11 +32,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ProductListScreen(viewModel: ProductViewModel = viewModel()) {
-    // Obtenemos la lista desde el ViewModel
+
     val products = viewModel.productList.value
 
     Column(modifier = Modifier.fillMaxSize()) {
-        // Título de la App
+
         Text(
             text = "Catálogo de Productos",
             style = MaterialTheme.typography.headlineMedium,
@@ -46,7 +45,7 @@ fun ProductListScreen(viewModel: ProductViewModel = viewModel()) {
         )
 
         if (products.isEmpty()) {
-            // Si aún no hay datos, mostramos un indicador de carga
+
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -54,7 +53,7 @@ fun ProductListScreen(viewModel: ProductViewModel = viewModel()) {
                 CircularProgressIndicator()
             }
         } else {
-            // Listado con scroll automático
+
             LazyColumn(
                 contentPadding = PaddingValues(bottom = 16.dp)
             ) {
@@ -81,7 +80,7 @@ fun ProductItem(product: Product) {
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Imagen del producto desde la URL de la API
+
             AsyncImage(
                 model = product.image,
                 contentDescription = product.name,
@@ -112,6 +111,8 @@ fun ProductItem(product: Product) {
                     maxLines = 2
                 )
             }
+
+            // termine todo
         }
     }
 }
