@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class ProductViewModel : ViewModel() {
-    // Aquí guardaremos la lista de productos
+//Lógica de negocio y conexión Retrofit.
     var productList = mutableStateOf<List<Product>>(emptyList())
         private set
 
@@ -20,7 +20,7 @@ class ProductViewModel : ViewModel() {
                 val response = RetrofitClient.apiService.getAllProducts()
                 productList.value = response.results
             } catch (e: Exception) {
-                // Aquí podrías manejar errores (sin internet, etc.)
+
             }
         }
     }
